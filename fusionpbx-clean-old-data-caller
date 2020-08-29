@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+PGPASSWORD=$(grep -Po "(?<=db_password = ').*(?=';$)" \
+                 /etc/fusionpbx/config.php | head -n 1)
+
+pushd /
+
+
+##### ----------------------------------------------------------------
+##### Uncomment the block below to clean 3-months-old data (~90 days)
+##### for all domains except aa, bb, cc, and dd.
+
+#sudo -H -u www-data bash /etc/fusionpbx-clean-old-data.sh \
+#    --days 90 \
+#    --domains all \
+#    --exclude "aa.domain.com, bb.domain.com, cc.domain.com, dd.domain.com" \
+#    <<< "$PGPASSWORD"
+
+
+##### ----------------------------------------------------------------
+##### Uncomment the block below to clean 6-months-old data (~180 days)
+##### only for domain aa.
+
+#sudo -H -u www-data bash /etc/fusionpbx-clean-old-data.sh \
+#    --days 180 \
+#    --domains "aa.domain.com" \
+#    <<< "$PGPASSWORD"
+
+
+##### ----------------------------------------------------------------
+##### Uncomment the block below to clean 1-year-old data (~365 days)
+##### for domains bb, cc, and dd.
+
+#sudo -H -u www-data bash /etc/fusionpbx-clean-old-data.sh \
+#    --days 365 \
+#    --domains "bb.domain.com, cc.domain.com, dd.domain.com" \
+#    <<< "$PGPASSWORD"
+
+
+popd
