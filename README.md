@@ -5,7 +5,7 @@
 
 * Tested on:
    * - FusionPBX 4.5.14 https://github.com/fusionpbx/fusionpbx/tree/2c7753c471ac93ca78ccbaf6acf9960ebf77ab0b
-   * - freeswitch 1.10.3~release~15~129de34d84~buster-1~buster+1
+   * - freeswitch 1.10.3\~release\~15\~129de34d84\~buster-1\~buster+1
    * - Debian GNU/Linux 10 (buster)
 
 ## Usage
